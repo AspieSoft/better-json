@@ -18,6 +18,24 @@ jobs:
       - run: npm ci
       - run: node test/index.js
 
+  publish-gpr:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: aspiesoft
+      - run: npm publish
+        if: failure()
+      - run: exit 0
+        env:
+          AUTHOR_EMAIL: aspiesoftweb@gmail.com
+          AUTHOR_NAME: aspiesoft
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
   publish-npm:
     needs: test
     runs-on: ubuntu-latest
@@ -34,24 +52,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-  publish-gpr:
-    needs: publish-npm
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: aspiesoft
-      - run: npm publish
-        env:
-          AUTHOR_EMAIL: aspiesoftweb@gmail.com
-          AUTHOR_NAME: aspiesoft
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
   publish-npm-noscope:
-    needs: publish-npm
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -63,5 +65,7 @@ jobs:
       - run: sed -i 's+"@aspiesoft/+"+g' package.json
       - run: sed -i 's+"@aspiesoft/+"+g' package-lock.json
       - run: npm publish --access public
+        if: failure()
+      - run: exit 0
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
