@@ -22,16 +22,16 @@ You can either use it as a new object, or override the default JSON object.
 ### Installation
 
 ```shell script
-npm install better-json
+npm install @aspiesoft/better-json
 ```
 
 ### Setup
 
 ```js
-const json = require('better-json');
+const json = require('@aspiesoft/better-json');
 
 // or to override the JSON object
-require('better-json')();
+require('@aspiesoft/better-json')();
 ```
 
 ### Usage
