@@ -29,7 +29,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: aspiesoft
       - run: npm publish
-        if: ${{fail()}}
+        if: ${{success()}}
       - run: exit 0
         env:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
@@ -47,7 +47,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
       - run: npm publish --access public
-        if: ${{fail()}}
+        if: ${{success()}}
       - run: exit 0
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -65,7 +65,7 @@ jobs:
       - run: sed -i 's+"@aspiesoft/+"+g' package.json
       - run: sed -i 's+"@aspiesoft/+"+g' package-lock.json
       - run: npm publish --access public
-        if: ${{fail()}}
+        if: ${{success()}}
       - run: exit 0
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
