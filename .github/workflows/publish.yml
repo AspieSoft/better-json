@@ -57,8 +57,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package.json
-      - run: sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package-lock.json
-      - run: npm version patch
+      - name: remove scope from package name
+        run: |
+          sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package.json
+          sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package-lock.json
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
