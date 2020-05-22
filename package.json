@@ -1,6 +1,6 @@
 {
   "name": "@aspiesoft/better-json",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Simply better json with comments and auto normalization.",
   "license": "MIT",
   "author": "AspieSoft",
