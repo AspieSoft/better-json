@@ -1,12 +1,15 @@
 {
   "name": "better-json",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Simply better json with comments and auto normalization.",
   "license": "MIT",
   "author": "AspieSoft",
   "repository": {
     "type": "git",
     "url": "git://github.com/aspiesoft/better-json"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "main": "index.js",
   "keywords": [
