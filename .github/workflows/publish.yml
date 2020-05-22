@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,10 +16,10 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: node build.js
+      - run: node test/index.js
 
   publish-gpr:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: aspiesoft
       - run: npm publish
         env:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
@@ -34,7 +35,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -42,6 +43,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+          scope: aspiesoft
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
