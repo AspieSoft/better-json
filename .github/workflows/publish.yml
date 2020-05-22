@@ -58,8 +58,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - run: npm i npe -D
-      - run: npe name --package=package-name.json
+      - run: sed -i 's+"@aspiesoft/+"+g' package.json
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
