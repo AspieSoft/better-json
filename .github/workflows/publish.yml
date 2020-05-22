@@ -29,7 +29,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
       - run: npm publish --access public
-        if: succeeded() || failed()
+        if: success()
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
