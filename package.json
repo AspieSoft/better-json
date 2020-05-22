@@ -8,9 +8,6 @@
     "type": "git",
     "url": "git://github.com/aspiesoft/better-json"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "main": "index.js",
   "keywords": [
     "nodejs"
