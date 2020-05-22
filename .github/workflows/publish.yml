@@ -17,6 +17,8 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: node build.js
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
     needs: build
