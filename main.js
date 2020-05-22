@@ -42,6 +42,7 @@ function normalizeJson(str){
 	});
 }
 
+
 module.exports = (function(){
 	const exports = function(){
 		JSON.parse = newParseJSON;
