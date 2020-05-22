@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: continue-on-error
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
@@ -47,7 +47,13 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - run: npm publish --access public
+      - name: scope
+        run: npm publish --access public
+      - name: noscope
+        run: |
+          sed -i 's+"@aspiesoft/+"+g' package.json
+          sed -i 's+"@aspiesoft/+"+g' package-lock.json
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -64,7 +70,5 @@ jobs:
       - run: sed -i 's+"@aspiesoft/+"+g' package.json
       - run: sed -i 's+"@aspiesoft/+"+g' package-lock.json
       - run: npm publish --access public
-        if: failure()
-      - run: exit 0
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
