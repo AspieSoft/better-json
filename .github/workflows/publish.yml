@@ -28,11 +28,11 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - run:
-          - try:
-              - npm publish --access public
-          - except:
-              exit 0
+      - run: |
+          try:
+            npm publish --access public
+          except:
+            exit 0
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
