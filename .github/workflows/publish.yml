@@ -31,8 +31,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: aspiesoft
       - run: npm publish
-        if: failure()
       - run: exit 0
+        if: failure()
         env:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
           AUTHOR_NAME: aspiesoft
