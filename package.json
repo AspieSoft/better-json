@@ -1,6 +1,6 @@
 {
   "name": "@aspiesoft/better-json",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Simply better json with comments and auto normalization.",
   "license": "MIT",
   "author": "AspieSoft",
@@ -10,6 +10,12 @@
   },
   "main": "index.js",
   "keywords": [
+    "json",
+    "comments",
+    "auto quotes",
+    "normalize",
+    "crash resistance",
+    "type correction",
     "nodejs"
   ],
   "devDependencies": {
