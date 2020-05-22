@@ -26,13 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - uses: continue-on-error
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: aspiesoft
       - run: npm publish
-      - run: exit 0
-        if: failure()
         env:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
           AUTHOR_NAME: aspiesoft
@@ -49,8 +48,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
       - run: npm publish --access public
-        if: failure()
-      - run: exit 0
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
