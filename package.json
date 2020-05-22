@@ -1,0 +1,19 @@
+{
+  "name": "better-json",
+  "version": "0.0.1",
+  "description": "Simply better json with comments and auto normalization.",
+  "license": "MIT",
+  "author": "AspieSoft",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aspiesoft/better-json"
+  },
+  "main": "index.js",
+  "keywords": [
+    "nodejs"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "miniforge-js": "^0.2.4"
+  }
+}
