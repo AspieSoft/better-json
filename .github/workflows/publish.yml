@@ -7,10 +7,9 @@ on:
     branches:
       - master
 
-strategy:
-  fail-fast: false
-
 jobs:
+  strategy:
+    fail-fast: false
   test:
     runs-on: ubuntu-latest
     steps:
