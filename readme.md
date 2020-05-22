@@ -1,7 +1,6 @@
-## better-json
+## Better JSON
 
 ![npm](https://img.shields.io/npm/v/better-json)
-![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/better-json)
 ![GitHub top language](https://img.shields.io/github/languages/top/aspiesoft/better-json)
 ![NPM](https://img.shields.io/npm/l/better-json)
 
