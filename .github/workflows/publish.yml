@@ -28,7 +28,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: aspiesoft
-      - run: npm publish
+      - run: npm publish --silent
       - run: exit 0
         if: ${{failure()}}
         env:
@@ -46,7 +46,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - run: npm publish --access public
+      - run: npm publish --access public --silent
       - run: exit 0
         if: ${{failure()}}
         env:
@@ -64,7 +64,7 @@ jobs:
           scope: aspiesoft
       - run: sed -i 's+"@aspiesoft/+"+g' package.json
       - run: sed -i 's+"@aspiesoft/+"+g' package-lock.json
-      - run: npm publish --access public
+      - run: npm publish --access public --silent
       - run: exit 0
         if: ${{failure()}}
         env:
