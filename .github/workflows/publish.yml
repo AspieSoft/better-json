@@ -18,6 +18,20 @@ jobs:
       - run: npm ci
       - run: node test/index.js
 
+  publish-npm:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+          scope: aspiesoft
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
   publish-gpr:
     needs: test
     runs-on: ubuntu-latest
@@ -34,7 +48,7 @@ jobs:
           AUTHOR_NAME: aspiesoft
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  publish-npm:
+  publish-npm-noscope:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -44,13 +58,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - name: scope
-        run: npm publish --access public
-        if: success()
-      - name: noscope
-        run: |
-          sed -i 's+"@aspiesoft/+"+g' package.json
-          sed -i 's+"@aspiesoft/+"+g' package-lock.json
-          npm publish --access public
+      - run: sed -i 's+"@aspiesoft/+"+g' package.json
+      - run: sed -i 's+"@aspiesoft/+"+g' package-lock.json
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
