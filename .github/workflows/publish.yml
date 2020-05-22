@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
+          publish_latest: true
           node-version: 12
       - run: npm ci
       - run: node test/index.js
@@ -28,7 +29,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - run: npm version patch
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -43,7 +43,6 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: aspiesoft
-      - run: npm version patch
       - run: npm publish
         env:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
@@ -62,7 +61,6 @@ jobs:
           scope: aspiesoft
       - run: sed -i 's+"@aspiesoft/+"+g' package.json
       - run: sed -i 's+"@aspiesoft/+"+g' package-lock.json
-      - run: npm version patch
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
