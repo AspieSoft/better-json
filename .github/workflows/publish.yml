@@ -33,15 +33,15 @@ jobs:
 
   publish-gpr:
     needs: build
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 12
-            registry-url: https://npm.pkg.github.com/
-        - run: npm publish
-          env:
-            AUTHOR_EMAIL: aspiesoftweb@gmail.com
-            AUTHOR_NAME: aspiesoft
-            NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - run: npm publish
+        env:
+          AUTHOR_EMAIL: aspiesoftweb@gmail.com
+          AUTHOR_NAME: aspiesoft
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

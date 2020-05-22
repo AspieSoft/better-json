@@ -1,5 +1,2 @@
 .idea/
 node_modules/
-test/
-app.js
-build.js
