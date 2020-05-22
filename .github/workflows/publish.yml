@@ -21,7 +21,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,7 +35,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
