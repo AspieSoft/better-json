@@ -58,7 +58,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
-      - run: npm ci npe
+      - run: npm i npe -D
       - run: npe name --package=package-name.json
       - run: npm publish --access public
         env:
