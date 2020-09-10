@@ -1,3 +1,5 @@
+// In God We Trust
+
 const parseJSON = JSON.parse.bind({});
 const stringifyJSON = JSON.stringify.bind({});
 

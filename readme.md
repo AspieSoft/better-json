@@ -1,4 +1,4 @@
-## Better JSON
+# Better JSON
 
 ![npm](https://img.shields.io/npm/v/better-json)
 ![GitHub top language](https://img.shields.io/github/languages/top/aspiesoft/better-json)
@@ -12,20 +12,20 @@
 Simply better json with comments and auto normalization.
 You can either use it as a new object, or override the default JSON object.
 
- - comments are removed from strings
- - quotes are added where needed automatically
- - single quotes are corrected to double, when needed
- - types are auto corrected ('1' becomes 1)
- - trailing commas are removed
- - crash resistance (runs in a try catch block, and returns null on error)
+- comments are removed from strings
+- quotes are added where needed automatically
+- single quotes are corrected to double, when needed
+- types are auto corrected ('1' becomes 1)
+- trailing commas are removed
+- crash resistance (runs in a try catch block, and returns null on error)
 
-### Installation
+## Installation
 
 ```shell script
 npm install @aspiesoft/better-json
 ```
 
-### Setup
+## Setup
 
 ```js
 const json = require('@aspiesoft/better-json');
@@ -34,7 +34,7 @@ const json = require('@aspiesoft/better-json');
 require('@aspiesoft/better-json')();
 ```
 
-### Usage
+## Usage
 
 ```js
 json.parse(`
