@@ -7,7 +7,7 @@
 ![npm](https://img.shields.io/npm/dw/better-json)
 ![npm](https://img.shields.io/npm/dm/better-json)
 
-[![paypal](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://buymeacoffee.aspiesoft.com/from-npm/better-json)
+[![paypal](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://buymeacoffee.aspiesoft.com)
 
 Simply better json with comments and auto normalization.
 You can either use it as a new object, or override the default JSON object.
