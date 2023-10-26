@@ -3,7 +3,7 @@
 const parseJSON = JSON.parse.bind({});
 const stringifyJSON = JSON.stringify.bind({});
 
-newParseJSON = function(text, reviver){
+const newParseJSON = function(text, reviver){
 	if(typeof text === 'function' || typeof text === 'undefined' || text === null){return null;}
 	if(typeof text === 'object' || Array.isArray(text)){return JSON.parse(JSON.stringify(text));}
 	text = text.toString();
@@ -21,7 +21,7 @@ newParseJSON = function(text, reviver){
 	}catch(e){return null;}
 };
 
-newStringifyJSON = function(value, replacer, space){
+const newStringifyJSON = function(value, replacer, space){
 	if(typeof value === 'string' && value.match(/[{}\[\]]/g)){
 		value = JSON.parse(value);
 	}else if(typeof value === 'string'){

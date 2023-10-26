@@ -1,11 +1,11 @@
 {
   "name": "@aspiesoft/better-json",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Simply better json with comments and auto normalization.",
   "license": "MIT",
   "author": "AspieSoft",
   "scripts": {
-    "test": "node app.js",
+    "test": "node test/index.js",
     "build": "node build.js"
   },
   "repository": {
@@ -23,6 +23,6 @@
     "nodejs"
   ],
   "devDependencies": {
-    "miniforge-js": "^1.0.0"
+    "miniforge-js": "^1.2.2"
   }
 }

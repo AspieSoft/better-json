@@ -13,4 +13,3 @@ function runTest(json){
 }
 
 module.exports = runTest;
-/\s*?"@aspiesoft\//
