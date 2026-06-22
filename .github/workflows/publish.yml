@@ -47,20 +47,3 @@ jobs:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
           AUTHOR_NAME: aspiesoft
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  publish-npm-noscope:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - name: remove scope from package name
-        run: |
-          sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package.json
-          sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package-lock.json
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
